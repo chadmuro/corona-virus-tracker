@@ -7,19 +7,17 @@ const Count = ({ dataType }: { dataType: string }) => {
 	const [count, setCount] = useState(0);
 	const data = useContext(DataContext);
 
-	console.log(data);
-
 	useEffect(() => {
 		if (data) {
 			switch (dataType) {
-				case 'deaths':
-					setCount(data?.TotalDeaths);
+				case 'Deaths':
+					setCount(data?.death);
 					break;
-				case 'recovered':
-					setCount(data.TotalRecovered);
+				case 'Recovered':
+					setCount(data?.discharge);
 					break;
 				default:
-					setCount(data.TotalConfirmed);
+					setCount(data?.positive);
 					break;
 			}
 		}
@@ -30,8 +28,7 @@ const Count = ({ dataType }: { dataType: string }) => {
 	return (
 		<div>
 			<Card>
-				<Typography>Total Deaths</Typography>
-
+				<Typography>Total {dataType}</Typography>
 				<animated.div>
 					{/* @ts-ignore */}
 					{spring.val.interpolate(val => Math.floor(val))}

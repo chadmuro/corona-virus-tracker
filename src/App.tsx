@@ -7,8 +7,8 @@ const App = () => {
 		<div className="App">
 			<DataProvider>
 				<Header />
-				<Count dataType="deaths" />
-				<Count dataType="recovered" />
+				<Count dataType="Deaths" />
+				<Count dataType="Recovered" />
 			</DataProvider>
 		</div>
 	);
