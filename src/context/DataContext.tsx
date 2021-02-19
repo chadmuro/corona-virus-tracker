@@ -32,17 +32,15 @@ const japanData = {
 export const DataContext = createContext<Data | null>(null);
 
 export const DataProvider = (props: any) => {
-  const [data, setData] = useState<Data | null>(null);
+	const [data, setData] = useState<Data | null>(null);
 
-  useEffect(() => {
+	useEffect(() => {
 		axios.get('https://api.covid19api.com/summary').then(res => {
 			setData(res.data.Countries[84]);
 		});
 	}, []);
 
 	return (
-		<DataContext.Provider value={data}>
-			{props.children}
-		</DataContext.Provider>
+		<DataContext.Provider value={data}>{props.children}</DataContext.Provider>
 	);
 };
