@@ -1,7 +1,3 @@
-export interface PrefectureData {
-	prefecture: Prefecture[];
-}
-
 export interface TotalData {
 	date: number;
 	pcr: number;

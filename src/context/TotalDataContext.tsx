@@ -4,6 +4,7 @@ import { TotalData } from '../interface';
 
 export const TotalDataContext = createContext<TotalData | null>(null);
 
+// TO-DO update props type?
 export const TotalDataProvider = (props: any) => {
 	const [totalData, setTotalData] = useState<TotalData | null>(null);
 
