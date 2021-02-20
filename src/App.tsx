@@ -1,15 +1,15 @@
-import { DataProvider } from './context/DataContext';
+import { TotalDataProvider } from './context/TotalDataContext';
 import Header from './components/Header';
 import Count from './components/Count';
 
 const App = () => {
 	return (
 		<div className="App">
-			<DataProvider>
+			<TotalDataProvider>
 				<Header />
 				<Count dataType="Deaths" />
 				<Count dataType="Recovered" />
-			</DataProvider>
+			</TotalDataProvider>
 		</div>
 	);
 };

@@ -1,29 +1,40 @@
 import { useContext } from 'react';
-import { DataContext } from '../context/DataContext';
-import { Toolbar, Typography, makeStyles, createStyles, Theme } from '@material-ui/core';
+import { TotalDataContext } from '../context/TotalDataContext';
+import {
+	Toolbar,
+	Typography,
+	makeStyles,
+	createStyles,
+	Theme,
+} from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1
-    },
-    toolbar: {
-      display: 'flex',
-      flexDirection: 'column',
-      padding: theme.spacing(2),
-      backgroundColor: 'red'
-    }
-  })
-)
+	createStyles({
+		root: {
+			flexGrow: 1,
+		},
+		toolbar: {
+			display: 'flex',
+			flexDirection: 'column',
+			padding: theme.spacing(2),
+			backgroundColor: 'red',
+		},
+	})
+);
 
 const Header = () => {
-  const data = useContext(DataContext);
-  const classes = useStyles();
+	const data = useContext(TotalDataContext);
+	const classes = useStyles();
 
-  let date = data?.date.toString()
-  date = date?.substring(0, 4) + "-" + date?.substring(4,6) + "-" + date?.substring(6,8);
-  
-  return (
+	let date = data?.date.toString();
+	date =
+		date?.substring(0, 4) +
+		'-' +
+		date?.substring(4, 6) +
+		'-' +
+		date?.substring(6, 8);
+
+	return (
 		<div className={classes.root}>
 			<Toolbar className={classes.toolbar}>
 				<Typography variant="h4">Japan Corona Virus Dashboard</Typography>
@@ -33,6 +44,6 @@ const Header = () => {
 			</Toolbar>
 		</div>
 	);
-}
+};
 
 export default Header;

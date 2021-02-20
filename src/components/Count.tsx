@@ -1,27 +1,27 @@
 import { useState, useEffect, useContext } from 'react';
-import { DataContext } from '../context/DataContext';
+import { TotalDataContext } from '../context/TotalDataContext';
 import { useSpring, animated } from 'react-spring';
 import { Card, Typography } from '@material-ui/core';
 
 const Count = ({ dataType }: { dataType: string }) => {
 	const [count, setCount] = useState(0);
-	const data = useContext(DataContext);
+	const totalData = useContext(TotalDataContext);
 
 	useEffect(() => {
-		if (data) {
+		if (totalData) {
 			switch (dataType) {
 				case 'Deaths':
-					setCount(data?.death);
+					setCount(totalData?.death);
 					break;
 				case 'Recovered':
-					setCount(data?.discharge);
+					setCount(totalData?.discharge);
 					break;
 				default:
-					setCount(data?.positive);
+					setCount(totalData?.positive);
 					break;
 			}
 		}
-	}, [data]);
+	}, [totalData]);
 
 	const spring = useSpring({ val: count, from: { val: 0 } });
 
