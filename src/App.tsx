@@ -9,6 +9,7 @@ const App = () => {
 			<TotalDataProvider>
 				<PrefectureDataProvider>
 					<Header />
+					<Count dataType="Confirmed" />
 					<Count dataType="Deaths" />
 					<Count dataType="Recovered" />
 				</PrefectureDataProvider>
