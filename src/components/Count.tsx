@@ -27,6 +27,9 @@ const Count = ({ dataType }: { dataType: string }) => {
 				case 'Recovered':
 					setCount(totalData?.discharge);
 					break;
+        case 'PCR':
+          setCount(totalData?.pcr);
+          break;
 				default:
 					setCount(totalData?.positive);
 					break;
